@@ -35,6 +35,29 @@ init_forbid_extra = true
 init_typed = true
 warn_required_dynamic_aliases = true
 
+[tool.ruff]
+src = ["src"]
+target-version = "py314"
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["ALL"]
+fixable = ["ALL"]
+ignore = [
+    "ANN401",
+    "COM812",
+    "D",
+    "EM101",
+    "EM102",
+    "TRY003",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
 [tool.ruff.lint.isort]
 force-single-line = true
 force-sort-within-sections = true
