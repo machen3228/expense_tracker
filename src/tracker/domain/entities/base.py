@@ -1,11 +1,13 @@
 from abc import ABC
 from collections.abc import Hashable
 from dataclasses import dataclass
-from typing import Any, Self, dataclass_transform
+from typing import Any
+from typing import Self
+from typing import dataclass_transform
 
 
 @dataclass_transform(kw_only_default=True)
-def entity[ClsT](cls: type[ClsT]) -> type[ClsT]:
+def entity[ClsType](cls: type[ClsType]) -> type[ClsType]:
     return dataclass(cls, kw_only=True)
 
 
