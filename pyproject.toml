@@ -23,6 +23,8 @@ dev = [
 
 [tool.mypy]
 strict = true
+explicit_package_bases = true
+mypy_path = "src"
 plugins = [
     "sqlalchemy.ext.mypy.plugin",
     "pydantic.mypy",
