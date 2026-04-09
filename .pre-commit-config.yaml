@@ -1,0 +1,42 @@
+default_stages:
+- pre-commit
+default_language_version:
+    python: python3
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    -   id: check-added-large-files
+        files: ^(src)/
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+        files: ^(src)/
+
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.21.2
+    hooks:
+    -   id: pyupgrade
+        files: ^(src)/
+        entry: pyupgrade --py314-plus --keep-percent-format
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.10
+    hooks:
+    -   id: ruff
+        files: ^(src)/
+        args:
+        - --fix
+    -   id: ruff-format
+        files: ^(src)/
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.20.0
+    hooks:
+      - id: mypy
+        files: ^(src)/
+        args: [--strict]
+        additional_dependencies:
+          - sqlalchemy>=2.0
+          - pydantic>=2.12
+          - fastapi>=0.135
