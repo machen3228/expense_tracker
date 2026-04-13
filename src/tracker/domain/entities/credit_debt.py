@@ -6,12 +6,10 @@ from tracker.domain.entities.base import Entity
 from tracker.domain.entities.base import entity
 
 if TYPE_CHECKING:
-    from datetime import date
-
     from tracker.domain.entities.expense_category import ExpenseCategoryId
     from tracker.domain.entities.person import PersonId
-    from tracker.domain.enums.payment_type import PaymentType
     from tracker.domain.values.dough import Dough
+    from tracker.domain.values.payment_schedule import PaymentSchedule
 
 CreditDebtId = NewType("CreditDebtId", UUID)
 
@@ -20,7 +18,6 @@ CreditDebtId = NewType("CreditDebtId", UUID)
 class CreditDebt(Entity[CreditDebtId]):
     category: ExpenseCategoryId
     amount: Dough
-    payment_type: PaymentType
     paid_by: PersonId
-    pay_at: date
+    schedule: PaymentSchedule
     description: str
