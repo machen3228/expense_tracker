@@ -24,6 +24,6 @@ class IncomeCategory(Entity[IncomeCategoryId]):
 
     def _validate(self) -> None:
         if self.is_default and self.owner is not None:
-            raise ValidationError("Default category must not have an owner")
+            raise ValidationError("Invalid income category: default category must not have an owner")
         if not self.is_default and self.owner is None:
-            raise ValidationError("Non-default category must have an owner")
+            raise ValidationError("Invalid income category: non-default category must have an owner")

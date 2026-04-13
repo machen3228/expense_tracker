@@ -27,12 +27,12 @@ class ExpenseSplit(Entity[ExpenseSplitId]):
 
     def _validate(self) -> None:
         if not self.shares:
-            raise ValidationError("ExpenseSplit must have at least one share")
+            raise ValidationError("Invalid expense split: expenseSplit must have at least one share")
 
         for person_id, share in self.shares.items():
             if share.currency != self.total_amount.currency:
                 raise ValidationError(
-                    f"Share for {person_id} uses currency {share.currency!r} "
+                    f"Invalid expense split: Share for {person_id} uses currency {share.currency!r} "
                     f"but expense uses {self.total_amount.currency!r}"
                 )
 
@@ -41,4 +41,6 @@ class ExpenseSplit(Entity[ExpenseSplitId]):
             start=Decimal(0),
         )
         if total != self.total_amount.amount:
-            raise ValidationError(f"Shares sum to {total} but expense total is {self.total_amount.amount}")
+            raise ValidationError(
+                f"Invalid expense split: Shares sum to {total} but expense total is {self.total_amount.amount}"
+            )

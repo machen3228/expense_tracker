@@ -24,11 +24,11 @@ class PaymentSchedule(Value):
 
     def _validate(self) -> None:
         if not self.dates:
-            raise ValidationError("on_dates must not be empty")
+            raise ValidationError("Invalid schedule: dates must not be empty")
         if len(self.dates) > 1:
             span = (max(self.dates) - min(self.dates)).days
             if span > _MAX_SCHEDULE_SPAN_DAYS:
-                raise ValidationError("payment schedule cannot span more than 100 years")
+                raise ValidationError("Invalid schedule: schedule cannot span more than 100 years")
 
     @classmethod
     def create_one_time_payment(cls, *, on: date) -> Self:
