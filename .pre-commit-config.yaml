@@ -8,35 +8,37 @@ repos:
     rev: v6.0.0
     hooks:
     -   id: check-added-large-files
-        files: ^(src)/
+        files: ^(src|tests)/
     -   id: check-yaml
     -   id: end-of-file-fixer
-        files: ^(src)/
+        files: ^(src|tests)/
 
 -   repo: https://github.com/asottile/pyupgrade
     rev: v3.21.2
     hooks:
     -   id: pyupgrade
-        files: ^(src)/
+        files: ^(src|tests)/
         entry: pyupgrade --py314-plus --keep-percent-format
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.10
     hooks:
     -   id: ruff
-        files: ^(src)/
+        files: ^(src|tests)/
         args:
         - --fix
     -   id: ruff-format
-        files: ^(src)/
+        files: ^(src|tests)/
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.20.0
     hooks:
       - id: mypy
-        files: ^(src)/
+        files: ^(src|tests)/
         args: [--strict]
         additional_dependencies:
           - sqlalchemy>=2.0
           - pydantic>=2.12
           - fastapi>=0.135
+          - pytest>=9.0.3
+          - pyhamcrest>=2.1.0
