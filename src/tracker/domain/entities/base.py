@@ -6,9 +6,9 @@ from typing import Self
 from typing import dataclass_transform
 
 
-@dataclass_transform(kw_only_default=True)
+@dataclass_transform(kw_only_default=True, eq_default=False)
 def entity[ClsType](cls: type[ClsType]) -> type[ClsType]:
-    return dataclass(cls, kw_only=True)
+    return dataclass(cls, kw_only=True, eq=False)
 
 
 @entity
