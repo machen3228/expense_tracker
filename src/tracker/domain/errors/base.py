@@ -8,3 +8,7 @@ class DomainError(AppError):
 
 class ValidationError(DomainError, ValueError, TypeError):
     pass
+
+
+class AlreadyExistsError(DomainError):
+    pass
