@@ -1,7 +1,7 @@
 from abc import ABC
 from abc import abstractmethod
-from collections.abc import Hashable
 from typing import TYPE_CHECKING
+from typing import Any
 
 from tracker.domain.entities.base import Entity
 from tracker.infrastructure.database.models.base import BaseORM
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from sqlalchemy.ext.asyncio import AsyncSession
 
 
-class SAAbstractRepository[EntityType: Entity[Hashable], ORMType: BaseORM](ABC):
+class SAAbstractRepository[EntityType: Entity[Any], ORMType: BaseORM](ABC):
     def __init__(self, session: AsyncSession) -> None:
         self._session: AsyncSession = session
 

@@ -5,6 +5,7 @@ from adaptix.conversion import link
 
 from tracker.domain.entities.person import Person
 from tracker.infrastructure.database.mapper import get_mapper
+from tracker.infrastructure.database.models.person import PersonORM
 from tracker.infrastructure.database.repositories.base import SAAbstractRepository
 
 if TYPE_CHECKING:

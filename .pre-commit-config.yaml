@@ -42,3 +42,4 @@ repos:
           - fastapi>=0.135
           - pytest>=9.0.3
           - pyhamcrest>=2.1.0
+          - adaptix>=3.0.0b12
