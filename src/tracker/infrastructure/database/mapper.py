@@ -4,7 +4,7 @@ from adaptix import Provider
 from adaptix import ProviderNotFoundError
 from adaptix.conversion import get_converter
 
-from tracker.application.errors.base import DataMapperError
+from tracker.infrastructure.database.errors.base import DataMapperError
 
 if TYPE_CHECKING:
     from collections.abc import Callable
