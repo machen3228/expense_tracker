@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.14"
 dependencies = [
+    "adaptix>=3.0.0b12",
     "alembic>=1.18.4",
     "bcrypt>=5.0.0",
     "dishka>=1.9.1",
