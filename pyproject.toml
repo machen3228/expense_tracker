@@ -95,3 +95,9 @@ line-ending = "auto"
 [tool.ruff.lint.isort]
 force-single-line = true
 force-sort-within-sections = true
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = [
+    "pydantic.BaseModel",
+    "pydantic_settings.BaseSettings",
+]

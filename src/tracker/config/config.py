@@ -1,6 +1,5 @@
 from pathlib import Path
 
-from pydantic import Field
 from pydantic_settings import BaseSettings
 from pydantic_settings import PydanticBaseSettingsSource
 from pydantic_settings import SettingsConfigDict
@@ -24,7 +23,7 @@ class Config(BaseSettings):
         env_file_encoding="utf-8",
     )
 
-    database: DatabaseConfig = Field(default_factory=DatabaseConfig)
+    database: DatabaseConfig
 
     @classmethod
     def settings_customise_sources(
