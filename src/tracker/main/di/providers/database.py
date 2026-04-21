@@ -1,6 +1,5 @@
 from typing import TYPE_CHECKING
 
-from dishka import BaseScope
 from dishka import Provider
 from dishka import Scope
 from dishka import provide
@@ -13,6 +12,7 @@ from tracker.infrastructure.database.transaction_manager import SATransactionMan
 if TYPE_CHECKING:
     from collections.abc import AsyncIterator
 
+    from dishka import BaseScope
     from sqlalchemy.ext.asyncio import AsyncEngine
 
     from tracker.application.interfaces.transaction_manager import ITransactionManager
