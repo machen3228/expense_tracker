@@ -1,6 +1,11 @@
 from pydantic import BaseModel
+from pydantic import Field
 from pydantic import SecretStr
 from sqlalchemy import URL
+
+
+class EngineConfig(BaseModel):
+    echo: bool
 
 
 class DatabaseConfig(BaseModel):
@@ -10,6 +15,8 @@ class DatabaseConfig(BaseModel):
     port: int
     username: str
     password: SecretStr
+
+    engine: EngineConfig = Field(default_factory=EngineConfig)
 
     @property
     def url(self) -> URL:

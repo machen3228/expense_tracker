@@ -1,13 +1,12 @@
 from pathlib import Path
-from typing import TYPE_CHECKING
 
+from pydantic import Field
 from pydantic_settings import BaseSettings
 from pydantic_settings import PydanticBaseSettingsSource
 from pydantic_settings import SettingsConfigDict
 from pydantic_settings import TomlConfigSettingsSource
 
-if TYPE_CHECKING:
-    from tracker.config.database import DatabaseConfig
+from tracker.config.database import DatabaseConfig
 
 CONFIGS_ROOT = Path(__file__).parent.parent.parent.parent / "configs"
 CONFIG_FILE = CONFIGS_ROOT / "config.toml"
@@ -25,7 +24,7 @@ class Config(BaseSettings):
         env_file_encoding="utf-8",
     )
 
-    database: DatabaseConfig
+    database: DatabaseConfig = Field(default_factory=DatabaseConfig)
 
     @classmethod
     def settings_customise_sources(
