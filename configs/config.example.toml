@@ -1,0 +1,6 @@
+[database]
+drivername = "postgresql+asyncpg"
+name = "tracker"
+host = "postgres"
+port = 5432
+username = "admin"

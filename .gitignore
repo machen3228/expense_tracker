@@ -218,3 +218,7 @@ __marimo__/
 # Claude Code
 CLAUDE.md
 .claude/
+
+# Local config files
+configs/config.toml
+configs/secret.toml

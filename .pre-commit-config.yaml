@@ -44,3 +44,4 @@ repos:
           - pyhamcrest>=2.1.0
           - adaptix>=3.0.0b12
           - bcrypt>=5.0.0
+          - pydantic-settings>=2.13.1
