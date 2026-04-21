@@ -1,18 +1,13 @@
-from typing import TYPE_CHECKING
-
+from dishka import BaseScope
 from dishka import Provider
 from dishka import Scope
 from dishka import provide
 
 from tracker.application.commands.person.create import CreatePerson
-
-if TYPE_CHECKING:
-    from dishka import BaseScope
-
-    from tracker.application.interfaces.readers.person import IPersonReader
-    from tracker.application.interfaces.repositories.person import IPersonRepository
-    from tracker.application.interfaces.security.password_hasher import IPasswordHasher
-    from tracker.application.interfaces.transaction_manager import ITransactionManager
+from tracker.application.interfaces.readers.person import IPersonReader
+from tracker.application.interfaces.repositories.person import IPersonRepository
+from tracker.application.interfaces.security.password_hasher import IPasswordHasher
+from tracker.application.interfaces.transaction_manager import ITransactionManager
 
 
 class InteractorsProvider(Provider):

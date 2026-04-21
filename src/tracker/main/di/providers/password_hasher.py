@@ -1,15 +1,10 @@
-from typing import TYPE_CHECKING
-
+from dishka import BaseScope
 from dishka import Provider
 from dishka import Scope
 from dishka import provide
 
+from tracker.application.interfaces.security.password_hasher import IPasswordHasher
 from tracker.infrastructure.password_hasher import BcryptPasswordHasher
-
-if TYPE_CHECKING:
-    from dishka import BaseScope
-
-    from tracker.application.interfaces.security.password_hasher import IPasswordHasher
 
 
 class PasswordHasherProvider(Provider):
