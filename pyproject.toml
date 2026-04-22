@@ -64,6 +64,10 @@ ignore_missing_imports = true
 module = ["alembic.*"]
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = ["uvicorn.*"]
+ignore_missing_imports = true
+
 [tool.pydantic-mypy]
 init_forbid_extra = true
 init_typed = true
@@ -84,6 +88,7 @@ ignore = [
     "D",
     "EM101",
     "EM102",
+    "TC",
     "TRY003",
 ]
 
@@ -104,15 +109,4 @@ line-ending = "auto"
 [tool.ruff.lint.isort]
 force-single-line = true
 force-sort-within-sections = true
-
-[tool.ruff.lint.flake8-type-checking]
-runtime-evaluated-base-classes = [
-    "pydantic.BaseModel",
-    "pydantic_settings.BaseSettings",
-    "dishka.Provider",
-    "tracker.infrastructure.database.models.base.BaseORM",
-]
-runtime-evaluated-decorators = [
-    "dishka.provide",
-    "tracker.domain.entities.base.entity",
-]
+known-first-party = ["tracker"]
