@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 from adaptix import P
+from adaptix.conversion import allow_unlinked_optional
 from adaptix.conversion import link
 
 from tracker.domain.entities.person import Person
@@ -16,6 +17,8 @@ _to_orm: Callable[[Person], PersonORM] = get_mapper(
     PersonORM,
     recipe=[
         link(P[Person].username, P[PersonORM].username, coercer=lambda u: u.value),
+        allow_unlinked_optional(P[PersonORM].created_at),
+        allow_unlinked_optional(P[PersonORM].updated_at),
     ],
 )
 
