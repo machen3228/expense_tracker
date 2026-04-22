@@ -1,14 +1,11 @@
-from typing import TYPE_CHECKING
 from typing import NewType
 from uuid import UUID
 
 from tracker.domain.entities.base import Entity
 from tracker.domain.entities.base import entity
+from tracker.domain.entities.person import PersonId
 from tracker.domain.errors import ValidationError
-
-if TYPE_CHECKING:
-    from tracker.domain.entities.person import PersonId
-    from tracker.domain.values.category_name import CategoryName
+from tracker.domain.values.category_name import CategoryName
 
 IncomeCategoryId = NewType("IncomeCategoryId", UUID)
 

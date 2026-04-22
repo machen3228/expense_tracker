@@ -101,7 +101,9 @@ runtime-evaluated-base-classes = [
     "pydantic.BaseModel",
     "pydantic_settings.BaseSettings",
     "dishka.Provider",
+    "tracker.infrastructure.database.models.base.BaseORM",
 ]
 runtime-evaluated-decorators = [
     "dishka.provide",
+    "tracker.domain.entities.base.entity",
 ]

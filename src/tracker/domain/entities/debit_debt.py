@@ -1,15 +1,12 @@
-from typing import TYPE_CHECKING
 from typing import NewType
 from uuid import UUID
 
 from tracker.domain.entities.base import Entity
 from tracker.domain.entities.base import entity
-
-if TYPE_CHECKING:
-    from tracker.domain.entities.income_category import IncomeCategoryId
-    from tracker.domain.entities.person import PersonId
-    from tracker.domain.values.dough import Dough
-    from tracker.domain.values.payment_schedule import PaymentSchedule
+from tracker.domain.entities.income_category import IncomeCategoryId
+from tracker.domain.entities.person import PersonId
+from tracker.domain.values.dough import Dough
+from tracker.domain.values.payment_schedule import PaymentSchedule
 
 DebitDebtId = NewType("DebitDebtId", UUID)
 

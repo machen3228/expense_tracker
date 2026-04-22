@@ -1,15 +1,11 @@
-from typing import TYPE_CHECKING
-
 from sqlalchemy import UUID
 from sqlalchemy import LargeBinary
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
+from tracker.domain.entities.person import PersonId
 from tracker.infrastructure.database.models.base import BaseORM
-
-if TYPE_CHECKING:
-    from tracker.domain.entities.person import PersonId
 
 
 class PersonORM(BaseORM):
