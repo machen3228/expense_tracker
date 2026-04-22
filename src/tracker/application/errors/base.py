@@ -7,3 +7,7 @@ class ApplicationError(AppError):
 
 class OperationFailedError(ApplicationError):
     pass
+
+
+class UnexpectedError(ApplicationError):
+    pass
