@@ -2,10 +2,10 @@ from typing import TYPE_CHECKING
 from typing import Self
 
 from tracker.application.dto.base import dto
+from tracker.domain.entities.person import PersonId
 
 if TYPE_CHECKING:
     from tracker.domain.entities.person import Person
-    from tracker.domain.entities.person import PersonId
 
 
 @dto
