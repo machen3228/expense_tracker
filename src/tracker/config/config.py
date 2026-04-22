@@ -5,6 +5,7 @@ from pydantic_settings import PydanticBaseSettingsSource
 from pydantic_settings import SettingsConfigDict
 from pydantic_settings import TomlConfigSettingsSource
 
+from tracker.config.api import APIConfig
 from tracker.config.database import DatabaseConfig
 
 CONFIGS_ROOT = Path(__file__).parent.parent.parent.parent / "configs"
@@ -23,6 +24,7 @@ class Config(BaseSettings):
         env_file_encoding="utf-8",
     )
 
+    api: APIConfig
     database: DatabaseConfig
 
     @classmethod
