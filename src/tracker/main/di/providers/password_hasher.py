@@ -4,7 +4,7 @@ from dishka import Scope
 from dishka import provide
 
 from tracker.application.interfaces.security.password_hasher import IPasswordHasher
-from tracker.infrastructure.password_hasher import BcryptPasswordHasher
+from tracker.infrastructure.security.password_hasher import BcryptPasswordHasher
 
 
 class PasswordHasherProvider(Provider):
