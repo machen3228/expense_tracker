@@ -29,11 +29,11 @@ class ChangePersonName(Interactor[ChangePersonNameRequest, ChangePersonNameRespo
 
     async def execute(self, request: ChangePersonNameRequest) -> ChangePersonNameResponse:
         current_person: Person = await self._idp.get_person()
-        self._check_access(current_person, request.id)
+        self._check_access(current_person, request.person_id)
 
-        person: Person | None = await self._person_reader.get_by_id(request.id)
+        person: Person | None = await self._person_reader.get_by_id(request.person_id)
         if person is None:
-            raise NotFoundError(f"User with id '{request.id}' not found")
+            raise NotFoundError(f"User with id '{request.person_id}' not found")
 
         person.username = PersonName(value=request.data.username)
 
