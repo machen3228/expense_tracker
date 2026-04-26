@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 from dishka import make_async_container
+from dishka.integrations.fastapi import FastapiProvider
 
 from tracker.config.database import DatabaseConfig
 from tracker.config.jwt import JWTConfig
@@ -19,10 +20,11 @@ if TYPE_CHECKING:
 
 def create_container(config: Config) -> AsyncContainer:
     providers: list[Provider] = [
+        FastapiProvider(),
         DatabaseProvider(),
         InteractorsProvider(),
-        SecurityProvider(),
         ReadersProvider(),
+        SecurityProvider(),
         RepositoriesProvider(),
     ]
 
