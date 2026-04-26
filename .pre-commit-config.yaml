@@ -46,3 +46,4 @@ repos:
           - bcrypt>=5.0.0
           - pydantic-settings>=2.13.1
           - dishka>=1.9.1
+          - pyjwt>=2.0.0
