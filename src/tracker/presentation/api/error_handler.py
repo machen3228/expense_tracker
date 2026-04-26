@@ -7,6 +7,7 @@ from fastapi import status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
+from tracker.application.errors.auth import AccessDeniedError
 from tracker.application.errors.base import OperationFailedError
 from tracker.application.errors.base import UnexpectedError
 from tracker.domain.errors import AppError
@@ -26,6 +27,7 @@ _ERROR_STATUS_CODE: Final[MappingProxyType[type[AppError], int]] = MappingProxyT
         NotFoundError: status.HTTP_404_NOT_FOUND,
         # Application errors
         OperationFailedError: status.HTTP_500_INTERNAL_SERVER_ERROR,
+        AccessDeniedError: status.HTTP_403_FORBIDDEN,
         # Fallback errors
         UnexpectedError: status.HTTP_500_INTERNAL_SERVER_ERROR,
         DataMapperError: status.HTTP_500_INTERNAL_SERVER_ERROR,
