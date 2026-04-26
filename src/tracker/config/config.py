@@ -7,6 +7,7 @@ from pydantic_settings import TomlConfigSettingsSource
 
 from tracker.config.api import APIConfig
 from tracker.config.database import DatabaseConfig
+from tracker.config.jwt import JWTConfig
 
 CONFIGS_ROOT = Path(__file__).parent.parent.parent.parent / "configs"
 CONFIG_FILE = CONFIGS_ROOT / "config.toml"
@@ -26,6 +27,7 @@ class Config(BaseSettings):
 
     api: APIConfig
     database: DatabaseConfig
+    jwt: JWTConfig
 
     @classmethod
     def settings_customise_sources(
