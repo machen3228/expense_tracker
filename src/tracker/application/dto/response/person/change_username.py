@@ -4,4 +4,4 @@ from tracker.application.dto.response.person.base import PersonView
 
 @dto
 class ChangePersonNameResponse:
-    user: PersonView
+    person: PersonView

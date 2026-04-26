@@ -31,4 +31,4 @@ async def change_username(
     data: ChangePersonNameData,
     interactor: FromDishka[ChangePersonName],
 ) -> ChangePersonNameResponse:
-    return await interactor.execute(ChangePersonNameRequest(person_id=person_id, data=data))
+    return await interactor.execute(ChangePersonNameRequest(id=person_id, data=data))

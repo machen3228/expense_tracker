@@ -9,5 +9,5 @@ class ChangePersonNameData:
 
 @dto
 class ChangePersonNameRequest:
-    person_id: PersonId
+    id: PersonId
     data: ChangePersonNameData
