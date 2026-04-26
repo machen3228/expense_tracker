@@ -8,13 +8,14 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from tracker.application.errors.auth import AccessDeniedError
+from tracker.application.errors.auth import AuthenticationError
 from tracker.application.errors.base import OperationFailedError
 from tracker.application.errors.base import UnexpectedError
 from tracker.domain.errors import AppError
 from tracker.domain.errors import ValidationError
 from tracker.domain.errors.base import AlreadyExistsError
 from tracker.domain.errors.base import NotFoundError
-from tracker.infrastructure.database.errors.base import DataMapperError
+from tracker.infrastructure.database.errors.base import InfrastructureError
 
 if TYPE_CHECKING:
     from fastapi.requests import Request
@@ -26,11 +27,12 @@ _ERROR_STATUS_CODE: Final[MappingProxyType[type[AppError], int]] = MappingProxyT
         AlreadyExistsError: status.HTTP_409_CONFLICT,
         NotFoundError: status.HTTP_404_NOT_FOUND,
         # Application errors
-        OperationFailedError: status.HTTP_500_INTERNAL_SERVER_ERROR,
+        AuthenticationError: status.HTTP_401_UNAUTHORIZED,
         AccessDeniedError: status.HTTP_403_FORBIDDEN,
+        OperationFailedError: status.HTTP_500_INTERNAL_SERVER_ERROR,
         # Fallback errors
         UnexpectedError: status.HTTP_500_INTERNAL_SERVER_ERROR,
-        DataMapperError: status.HTTP_500_INTERNAL_SERVER_ERROR,
+        InfrastructureError: status.HTTP_500_INTERNAL_SERVER_ERROR,
         AppError: status.HTTP_500_INTERNAL_SERVER_ERROR,
     }
 )
