@@ -10,6 +10,7 @@ from tracker.config.config import Config
 from tracker.config.config import config
 from tracker.main.di.container import create_container
 from tracker.presentation.api.error_handler import app_error_handler
+from tracker.presentation.api.routers.auth import router as auth_router
 from tracker.presentation.api.routers.person import router as person_router
 
 if TYPE_CHECKING:
@@ -53,6 +54,7 @@ def create_app(config: Config) -> FastAPI:
 
 
 def _include_routers(app: FastAPI) -> None:
+    app.include_router(auth_router)
     app.include_router(person_router)
 
 
