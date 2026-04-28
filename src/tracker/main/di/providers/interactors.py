@@ -3,11 +3,13 @@ from dishka import Provider
 from dishka import Scope
 from dishka import provide
 
+from tracker.application.commands.auth.login import LoginPerson
 from tracker.application.commands.person.change_username import ChangePersonName
 from tracker.application.commands.person.create import CreatePerson
 from tracker.application.interfaces.readers.person import IPersonReader
 from tracker.application.interfaces.repositories.person import IPersonRepository
 from tracker.application.interfaces.security.identity_provider import IIdentityProvider
+from tracker.application.interfaces.security.jwt_provider import IJWTProvider
 from tracker.application.interfaces.security.password_hasher import IPasswordHasher
 from tracker.application.interfaces.transaction_manager import ITransactionManager
 
@@ -43,4 +45,17 @@ class InteractorsProvider(Provider):
             person_reader,
             transaction_manager,
             identity_provider,
+        )
+
+    @provide
+    def login_person(
+        self,
+        person_reader: IPersonReader,
+        password_hasher: IPasswordHasher,
+        jwt_provider: IJWTProvider,
+    ) -> LoginPerson:
+        return LoginPerson(
+            person_reader,
+            password_hasher,
+            jwt_provider,
         )
