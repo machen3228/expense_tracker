@@ -4,6 +4,7 @@ from dishka import Scope
 from dishka import provide
 
 from tracker.application.commands.auth.login import LoginPerson
+from tracker.application.commands.auth.refresh_token import RefreshToken
 from tracker.application.commands.person.change_username import ChangePersonName
 from tracker.application.commands.person.create import CreatePerson
 from tracker.application.interfaces.readers.person import IPersonReader
@@ -57,5 +58,16 @@ class InteractorsProvider(Provider):
         return LoginPerson(
             person_reader,
             password_hasher,
+            jwt_provider,
+        )
+
+    @provide
+    def refresh_token(
+        self,
+        person_reader: IPersonReader,
+        jwt_provider: IJWTProvider,
+    ) -> RefreshToken:
+        return RefreshToken(
+            person_reader,
             jwt_provider,
         )
