@@ -7,9 +7,9 @@ from tracker.config.database import DatabaseConfig
 from tracker.config.jwt import JWTConfig
 from tracker.main.di.providers.database import DatabaseProvider
 from tracker.main.di.providers.interactors import InteractorsProvider
-from tracker.main.di.providers.password_hasher import SecurityProvider
 from tracker.main.di.providers.readers import ReadersProvider
 from tracker.main.di.providers.repositories import RepositoriesProvider
+from tracker.main.di.providers.security import SecurityProvider
 
 if TYPE_CHECKING:
     from dishka import AsyncContainer
